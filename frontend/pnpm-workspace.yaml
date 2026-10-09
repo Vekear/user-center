@@ -1,0 +1,6 @@
+# pnpm 12 no longer reads the "pnpm" field in package.json, and the pnpm 10
+# setting `onlyBuiltDependencies` was replaced by `allowBuilds` in pnpm 11+.
+# esbuild's postinstall verifies its platform binary (vite and vitest need it),
+# so it is approved here instead of failing the install with ERR_PNPM_IGNORED_BUILDS.
+allowBuilds:
+  esbuild: true

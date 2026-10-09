@@ -1,0 +1,32 @@
+# ---- build output ----
+backend/target/
+frontend/dist/
+frontend/node_modules/
+node_modules/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# ---- runtime data ----
+backend/data/
+backend/logs/
+*.log
+
+# ---- secrets & local config ----
+backend/src/main/resources/application-local.yml
+frontend/.env.local
+frontend/.env.*.local
+*.pem
+*.key
+
+# ---- test / coverage ----
+frontend/coverage/
+backend/target/surefire-reports/
+.nyc_output/
+
+# ---- IDE & OS ----
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db

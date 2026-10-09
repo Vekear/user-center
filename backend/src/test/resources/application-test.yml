@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${UC_DB_HOST:127.0.0.1}:${UC_DB_PORT:3306}/user_center_test?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    username: ${UC_DB_USER:uc_app}
+    password: ${UC_DB_PASSWORD:Uc_app_2026!}
+  sql:
+    init:
+      mode: always
+
+uc:
+  jwt:
+    secret: test-only-secret-please-change-0123456789abcdef
+  avatar:
+    dir: ./target/test-data/avatars
+  admin:
+    seed-password: Admin@12345
+
+logging:
+  level:
+    com.example.usercenter: INFO

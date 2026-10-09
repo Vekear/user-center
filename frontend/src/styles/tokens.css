@@ -1,0 +1,124 @@
+/* ============================================================================
+   tokens.css — 「个人档案册」设计变量
+   全部颜色、字体、间距、形状、动效只在这里定义；组件只引用 var(--*)。
+   规矩：1px 细边 + 2–4px 小圆角 + 顶部 3px accent 条，不用阴影堆叠。
+   ========================================================================== */
+
+:root {
+  /* ── 纸面与墨色 ─────────────────────────────────────────────────────── */
+  --paper: #f7f5f1; /* 页面底色：暖白纸面 */
+  --paper-raised: #ffffff; /* 卡片/表单面 */
+  --paper-sunken: #efebe4; /* 表头、只读区、凹陷块 */
+  --paper-tint: #fbfaf7; /* 斑马纹/悬停纸面 */
+  --ink: #16181d; /* 主文字：深墨 */
+  --ink-muted: #565b64; /* 次级文字（纸面上 ≈ 7:1） */
+  --ink-faint: #83878f; /* 辅助文字/占位符（≈ 4.6:1，仅用于大字号或非关键） */
+  --ink-inverse: #f7f5f1;
+  --rule: #e2ddd4; /* 1px 细边 */
+  --rule-strong: #cdc6b8; /* 需要更明确的分隔 */
+  --rule-dashed: #d8d2c7; /* 表格式点线引导 */
+
+  /* ── 主色：靛青 ─────────────────────────────────────────────────────── */
+  --indigo: #2f5d62;
+  --indigo-hover: #274e52; /* 派生：-8% 明度 */
+  --indigo-active: #1e3f43; /* 派生：-16% 明度 */
+  --indigo-tint: #e8efef; /* 派生：纸面混 10% */
+  --indigo-tint-strong: #d5e3e4;
+  --indigo-on-dark: #7fb0b3; /* 深墨底上的靛青（对比 ≥ 4.5:1） */
+
+  /* ── 点缀：琥珀（用于「待办/需要注意」，不作正文色） ────────────────── */
+  --amber: #e8a33d;
+  --amber-hover: #d3902c;
+  --amber-tint: #fbf0dc;
+  --amber-ink: #7a5410; /* 琥珀底上的文字，保证可读 */
+
+  /* ── 语义色 ─────────────────────────────────────────────────────────── */
+  --danger: #c0453b;
+  --danger-hover: #a93a31;
+  --danger-tint: #f8e7e5;
+  --success: #3f7a55;
+  --success-tint: #e7efe9;
+
+  /* ── 左侧导航（深墨底 + 米白字） ────────────────────────────────────── */
+  --nav-bg: #16181d;
+  --nav-fg: #edeae4;
+  --nav-fg-muted: #a3a6ab; /* on #16181d ≈ 7:1 */
+  --nav-fg-soft: #cfcbc3; /* 深墨底上的次级正文 */
+  --nav-rule: #2b2e35;
+  --nav-hover-bg: #1e2127;
+  --nav-active-bg: #242931;
+  --rule-on-dark: rgba(247, 245, 241, 0.08); /* 深色封面上的横格线 */
+  --paper-on-dark: #ffffff; /* 深色/彩色底上的纯白文字 */
+  --nav-width: 220px;
+  --nav-strip-height: 52px; /* ≤768px 折叠成顶部图标条 */
+
+  /* ── 字体：只用 CSS 字体栈，不联网加载 webfont ──────────────────────── */
+  --font-display: 'Fraunces', 'Noto Serif SC', Georgia, serif;
+  --font-body: 'Inter', system-ui, 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* 字号阶梯（1.2 比例，标题走衬线，数据走等宽） */
+  --text-2xs: 10.5px;
+  --text-xs: 11.5px;
+  --text-sm: 12.5px;
+  --text-base: 14px;
+  --text-md: 15.5px;
+  --text-lg: 19px;
+  --text-xl: 24px;
+  --text-2xl: 30px;
+  --text-3xl: 40px;
+
+  --leading-tight: 1.24;
+  --leading-snug: 1.4;
+  --leading-normal: 1.62; /* 衬线正文给稍大行高 */
+  --tracking-label: 0.16em; /* 小写字距标签 */
+  --tracking-tight: -0.01em;
+
+  /* ── 间距（4 的倍数） ───────────────────────────────────────────────── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 56px;
+  --sp-10: 72px;
+
+  /* ── 布局 ───────────────────────────────────────────────────────────── */
+  --content-max: 1120px;
+  --grid-columns: 12;
+  --grid-gap: 20px;
+  --page-pad-x: 32px;
+
+  /* ── 形状 ───────────────────────────────────────────────────────────── */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --border-hair: 1px solid var(--rule);
+  --border-strong: 1px solid var(--rule-strong);
+  --border-accent: 3px;
+  --control-height: 34px;
+  --control-height-lg: 40px;
+
+  /* ── 动效：全站只有两处（头像裁剪面板、通知红点脉冲） ───────────────── */
+  --motion-duration: 200ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+  --motion: var(--motion-duration) var(--motion-ease);
+
+  /* ── 层级 ───────────────────────────────────────────────────────────── */
+  --z-sticky: 10;
+  --z-nav: 20;
+  --z-modal: 100;
+  --z-toast: 120;
+
+  /* 阴影只给浮层（模态/菜单）用来与纸面分离，卡片一律不用 */
+  --shadow-overlay: 0 16px 40px rgba(22, 24, 29, 0.18);
+  --scrim: rgba(22, 24, 29, 0.46);
+}

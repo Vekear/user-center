@@ -1,0 +1,93 @@
+spring:
+  application:
+    name: user-center
+  profiles:
+    active: ${UC_PROFILE:local}
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${UC_DB_HOST:127.0.0.1}:${UC_DB_PORT:3306}/${UC_DB_NAME:user_center}?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    username: ${UC_DB_USER:uc_app}
+    password: ${UC_DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 10000
+      pool-name: uc-pool
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/seed.sql
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+  jackson:
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+uc:
+  jwt:
+    secret: ${UC_JWT_SECRET:}
+    issuer: user-center
+    access-token-minutes: 30
+    refresh-token-days: 14
+  cookie:
+    refresh-name: uc_refresh
+    secure: false
+    same-site: Lax
+    path: /api/auth
+  cors:
+    allowed-origins: http://localhost:5173,http://127.0.0.1:5173
+  avatar:
+    dir: ./data/avatars
+    public-prefix: /api/files/avatars
+    max-bytes: 2097152
+    max-dimension: 4096
+    min-dimension: 16
+  login:
+    max-failed-attempts: 5
+    lock-minutes: 10
+  admin:
+    seed-username: admin
+    seed-password: ${UC_ADMIN_PASSWORD:Admin@12345}
+    seed-email: admin@example.com
+    seed-nickname: 系统管理员
+
+logging:
+  level:
+    root: INFO
+    com.example.usercenter: INFO
