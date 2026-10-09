@@ -44,7 +44,7 @@
 
 | 审计日志 | 发送通知 |
 |---|---|
-| ![审计日志](readme-image/07-admin-audit.png) | ![发送通知](readme-image/08-admin-notify.png) |
+| ![审计日志](readme-image/07-admin-audit.png) | 
 
 | 404 / 无权限页 |
 |---|
