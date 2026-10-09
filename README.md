@@ -63,7 +63,7 @@
 
 | 审计日志 | 发送通知 | 404 |
 |---|---|---|
-| ![发送通知-手机](readme-image/08-admin-notify-mobile.png) | ![404-手机](readme-image/09-not-found-mobile.png) |
+ | ![404-手机](readme-image/09-not-found-mobile.png) |
 
 </details>
 
